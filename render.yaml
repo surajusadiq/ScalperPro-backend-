@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: scalperpro-mt5-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: EA_CONTROL_SECRET
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: "*"
